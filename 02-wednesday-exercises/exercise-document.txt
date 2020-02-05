@@ -1,0 +1,56 @@
+1) The request status is 304, meaning it is 'Not Modified'. This means there is no need to retransmit any of the requested resources. 
+
+2) We have the following status codes:
+The main HTML doc has code 304
+The style sheet has status code 404
+The picture has status code 304
+All have the connection header 'keep-alive', meaning the connection is persistent and not closed.
+
+3) Got two HTTP requests:
+The first (redirect), got status code 302 'Found'.
+The second (r.html), got status code 304 'Not Modified'.
+It knew to send me to r.html, because r.html was the location for the redirect, so that's where I ended up.
+
+3a) 
+The first header (studypoints.info) had the code 301 'Moved Permanently', moving to location 'https://studypoints.info/'
+The second header (studypoints.info) had the code 200, 'OK', ending us here.
+We did end up at 'https://studypoints.info/#/view1', which was not indicated in either of the two headers.
+
+4a) Ups resolved in the error code 500, 'Internal Server Error'
+
+4b) /i_dont_exist resolved in the error code 404, 'Not Found'
+
+4c)
+2xx = Success
+3xx = Redirection
+4xx = Error with request
+5xx = Error with server
+
+5) Servlet called Assignment5, and used the following code in the method processRequest:
+
+Enumeration<String> headers = request.getHeaderNames();
+while (headers.hasMoreElements()) {
+	String next = headers.nextElement();
+	out.println(next + " : " + request.getHeader(next) + "<br>");
+}
+
+6)
+With the GET method:
+The parameters are passed in the address line as queryParameters.
+
+With the POST method:
+The parameters are passed in the body of the request, and is not included in the address line. This can in Firefox (Teacher approved browser) in the parameter section of the developer tool kit.
+
+7) This method makes a cookie to save the typed name in the session object.
+If a name paramter is included in the address line, or a cookie with a name saved in the session object is given, it will use this name right away with the hello statement.
+If no name parameter is given, and no name is saved in the session from the cookie, or no cookie is given, the 'request name' part of the page is loaded.
+
+As I am writing this in a txt document, I have included the picture in the 02-wednesday-exercises as exercise7.
+This shows that the name is stored in the session object tied to the cookie, and not needed in the address line parameters.
+
+This value is saved in the browsers cashe, by saving it on the session. The information could therefore be lost if the session timed out or was closed by the browser.
+
+8) As with exercise 7, but this time the value is stored with as a cookie, and not with the session object. Picture in the same folder as this text, as exercise8.
+This now include 2 cookies, the ID cookie for the user, and a cookie for the username.
+
+This different to the session storage of exercise 7, is saving the information on the local system in the form of a cookie. This is more permenent for the local maschine, as cookies would need to be cleared to remove this information, thought it could be overwritten.

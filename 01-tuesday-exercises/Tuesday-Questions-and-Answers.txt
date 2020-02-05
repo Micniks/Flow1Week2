@@ -1,0 +1,86 @@
+Fundamental Network Topics
+Understanding Basic Network Terms like IP, TCP/IP, DNS, DHCP and more.
+
+Questions answered by: Michael N. Korsgaard (CPH-mk584)
+
+
+
+Q: What is your public IP address right now, and how did you find it?
+A: The current public IP on CPH I am connected to is 5.179.80.204, and was found by asking a website.
+
+
+Q: What is your private IP address right now (do this both at home and in school), and who/what gave you that address?
+A: The private IP is given by the router, and is found opened the command-promp, and typed in 'ipconfig', and found my IPv4 Address. For instance, I have had:
+at CPH: 192.168.56.1, 
+at home: 
+
+
+Q: What’s special about these address ranges?
+	10.0.0.0 – 10.255.255.255
+	172.16.0.0 – 172.31.255.255 
+	192.168.0.0 – 192.168.255.255
+A: They are of different classes, respectively class A (From 0 to 127), B(From 128 to 191) & C(From 192 to 255). // Each number in parameters is in respect to the first octet of the IP.
+Class A has a small network bit field number, but a large rest bit field number (8/24). This means there are few networks, but alot of addresses for each network.
+Class B has a small network bit field number, but a large rest bit field number (8/24). This means more networks, but fewer addresses for each network.
+Class C has a large network bit field number, but a small rest bit field number (24/8). This means there are plenty networks, but few addresses for each network.
+
+
+Q: What’s special about this ip-address: 127.0.0.1?
+A: 127.0.0.1 is the ip for localhost
+
+
+Q: What kind of service would you expect to find on a server using these ports: 22, 23, 25, 53, 80, 443?
+A: Most commonly, the ports are used for:
+22 - SSH, or Secure Shell
+23 - TELNET, from TCP Protocols
+25 - SMTP, or Simple Mail Transfer Protocol
+53 - DNS, or Domain Name System
+80 - HTTP
+443 - HTTPS - Has an extra layer of security
+
+
+Q: What is the IP address of studypoints.dk and how did you find it?
+A: 165.227.137.75, found by using a track-ip web application (https://ipinfo.info/html/ip_checker.php), since I could not open the site itself.
+
+
+Q: If you write https://studypoints.dk in your browser, how did “it” figure out that it should go to the IP address you discovered above?
+A: While it cannot find the site for me, it goes thought my internet provider, and goes to a DNS (Domain Name System) that can point to the ip from the domain name.
+
+
+Q: Explain shortly the purpose of an ip-address and a port-number and why we need both
+A: The IP-address is the location of the system we wish to access, and the port is the entrance we wish to use, given certain expectation from both systems on the interaction.
+	What might be a good metaphor would be to say the IP-address is the address of the 'house', and the ports are different entrances, such as doors, windows, or even sewage and pipes. Different entrances have different expectations and are as such treated differently.
+
+
+Q: What is your (nearest) DNS server?
+A: At CPH, it is Cloudflare, and with the IP 162.158.133.143, found with the web application (http://www.whatsmydnsserver.com/)
+
+
+Q: What is (conceptually) the DNS system and the purpose with a DNS Server?
+A: The DNS system is a catalog of domain-names and corresponding IPs, and the DNS server is accessed to locate the ip for a given domain-name.
+
+
+Q: What is your current Gateway, and how did you find it?
+A: 10.50.128.1, found from the ipconfig command on windows command-promp.
+
+
+Q: What is the address of your current DHCP-Server, and how did you find it?
+A: Using 'ipconfig /all' command on windows command-promp, I found it to be 10.255.1.9
+
+
+Q: Explain (conceptually) about the TCP/IP-protocol stack
+A: A different, but parallel model to the OSi model, having 4 layers (application, transport, internet & network access)
+Start from the OSi model, the application, presentation and session layer has been combined into a application layer in the TCP-IP-protocol, as it does not need to seperate these layers.
+The transport layers are the same, and the network layer has been renamed to internet layer.
+The Datalink and physical layer from OSi has been combined into a network access layer.
+This reflects the more current model of how the use the internet layers today.
+
+
+Q: Explain about the HTTP Protocol (the following exercises will go much deeper into this protocol)
+A: The HTTP protocol is part of the application layer of both the TCP-IP-protocol and the OSi model.
+It is the protocol used commonly on port 80, and used for handling requests to and from a server, with common methods such as GET and POST.
+
+
+Q: Explain (conceptually) how HTTP and TCP/IP are connected (what can HTTP do, and where does it fit into TCP/IP)
+A: Like stated above, the HTTP sends requests between the system and server, and that is placed into the application layer of the TCP/IP protocol
+
